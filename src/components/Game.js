@@ -17,7 +17,7 @@ const MySwal = withReactContent(Swal)
     useEffect(() => {
       async function startGame() {
         try {
-          const response = await axios.post("http://localhost:5000/api/v1/game/start");
+          const response = await axios.post("https://api.crsdle.deveroonie.uk/api/v1/game/start");
           setId(response.data.id);
         } catch (error) {
           console.error("Error fetching data:", error);
@@ -35,7 +35,7 @@ const MySwal = withReactContent(Swal)
           event.preventDefault();
           async function sendGuess() {
             try {
-              const response = await axios.patch(`http://localhost:5000/api/v1/game/guess/${id}?guess=${guess}`);
+              const response = await axios.patch(`https://api.crsdle.deveroonie.uk/api/v1/game/guess/${id}?guess=${guess}`);
               if(response.data.win == true) {
                 const MySwal = withReactContent(Swal)
 
